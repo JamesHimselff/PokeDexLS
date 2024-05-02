@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "275845322308",
+    "project_id": "actuallyatestapp",
+    "storage_bucket": "actuallyatestapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:275845322308:android:ef49eb84b318071c7c8e11",
+        "android_client_info": {
+          "package_name": "com.example.pokedexls"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeueZ_p7DqmOPj70KvzSqlKq-WTn42yNo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
