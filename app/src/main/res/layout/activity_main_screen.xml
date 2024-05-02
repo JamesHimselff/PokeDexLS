@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="641dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/navigation_pokedex_icon"
+            android:layout_width="0dp"
+            android:layout_height="130dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_pokedex" />
+
+        <ImageView
+            android:id="@+id/navigation_trainer_icon"
+            android:layout_width="0dp"
+            android:layout_height="128dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_trainer" />
+
+        <ImageView
+            android:id="@+id/navigation_shop_icon"
+            android:layout_width="0dp"
+            android:layout_height="136dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_shop" />
+
+    </LinearLayout>
+
+</LinearLayout>
