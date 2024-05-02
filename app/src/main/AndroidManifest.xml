@@ -13,10 +13,7 @@
         android:theme="@style/Theme.PokeDexLS"
         tools:targetApi="31">
         <activity
-            android:name=".TrainerActivity"
-            android:exported="false" />
-        <activity
-            android:name=".PokemonView"
+            android:name=".RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
