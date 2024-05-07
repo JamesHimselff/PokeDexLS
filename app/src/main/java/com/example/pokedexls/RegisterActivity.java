@@ -45,12 +45,8 @@ public class RegisterActivity extends AppCompatActivity {
             mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, task -> {
                         if (task.isSuccessful()) {
-                            /*****
-                            Aqui habra referencia a otra actividad
-
-                            Intent map_intent = new Intent(RegisterActivity.this, MainActivity.class);
-                            RegisterActivity.this.startActivity(map_intent);
-                             */////////
+                            Intent main_intent = new Intent(RegisterActivity.this, MainScreen.class);
+                            RegisterActivity.this.startActivity(main_intent);
                         } else {
                             // error
                         }

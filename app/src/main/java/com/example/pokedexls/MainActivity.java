@@ -53,12 +53,12 @@ public class MainActivity extends AppCompatActivity {
         if(currentUser != null){
             // If I am already logged in
             showToast("Welcome back");
-            /*************
-             * Referencia a otra actividad
-             *
-            //startActivity(new Intent(this, MainActivity.class));
+            Intent main_intent = new Intent(MainActivity.this, MainScreen.class);
+            main_intent.putExtra("key", currentUser);
+            MainActivity.this.startActivity(main_intent);
 
-            **************/
+
+
             finish();
             return;
         }
@@ -88,13 +88,11 @@ public class MainActivity extends AppCompatActivity {
 
  private void updateUI(FirebaseUser user) {
 
-        /******Aqui habra referencia a otra actividad
+     Intent main_intent = new Intent(MainActivity.this, MainScreen.class);
+     MainActivity.this.startActivity(main_intent);
 
-       Intent map_intent = new Intent(EmailPasswordActivity.this, MainActivity.class);
 
-       EmailPasswordActivity.this.startActivity(map_intent);
-        *************/
-    }
+ }
 
     private void showToast(String message) {
         Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
