@@ -21,21 +21,21 @@
         <ImageView
             android:id="@+id/navigation_pokedex_icon"
             android:layout_width="0dp"
-            android:layout_height="130dp"
+            android:layout_height="86dp"
             android:layout_weight="1"
             android:src="@drawable/ic_pokedex" />
 
         <ImageView
             android:id="@+id/navigation_trainer_icon"
             android:layout_width="0dp"
-            android:layout_height="128dp"
+            android:layout_height="87dp"
             android:layout_weight="1"
             android:src="@drawable/ic_trainer" />
 
         <ImageView
             android:id="@+id/navigation_shop_icon"
             android:layout_width="0dp"
-            android:layout_height="136dp"
+            android:layout_height="87dp"
             android:layout_weight="1"
             android:src="@drawable/ic_shop" />
 
