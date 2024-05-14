@@ -1,44 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="641dp"
-        android:layout_weight="1" />
+        android:layout_height="match_parent"
+        android:layout_above="@+id/navigation_bar" />
 
     <LinearLayout
+        android:id="@+id/navigation_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?android:attr/selectableItemBackground"
+        android:layout_alignParentBottom="true"
         android:gravity="center"
         android:orientation="horizontal">
 
-        <ImageView
+        <ImageButton
             android:id="@+id/navigation_pokedex_icon"
             android:layout_width="0dp"
-            android:layout_height="86dp"
+            android:layout_height="104dp"
             android:layout_weight="1"
+            android:background="@drawable/button_outline"
+            android:padding="4dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/ic_pokedex" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/navigation_trainer_icon"
             android:layout_width="0dp"
-            android:layout_height="87dp"
+            android:layout_height="104dp"
             android:layout_weight="1"
+            android:background="@drawable/button_outline"
+            android:padding="4dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/ic_trainer" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/navigation_shop_icon"
             android:layout_width="0dp"
-            android:layout_height="87dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@drawable/button_outline"
+            android:padding="4dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/ic_shop" />
-
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>
