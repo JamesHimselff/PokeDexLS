@@ -10,6 +10,9 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainScreen extends AppCompatActivity {
 
+    private String email;
+    private String username;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +24,20 @@ public class MainScreen extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
 
-        System.out.println(currentUser.getEmail());
+        if (currentUser != null) {
+            email = currentUser.getEmail();
+        }
+
+        if (email != null) {
+            int atIndex = email.indexOf("@");
+            if (atIndex != -1) {
+                username = email.substring(0, atIndex);
+            }
+        }
+
+        System.out.println(username);
+
+
 
 
     }
