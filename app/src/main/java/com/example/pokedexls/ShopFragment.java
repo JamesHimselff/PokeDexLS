@@ -1,4 +1,8 @@
 package com.example.pokedexls;
 
-public class ShopFragment {
+import androidx.fragment.app.Fragment;
+
+public class ShopFragment extends Fragment {
+
+
 }
