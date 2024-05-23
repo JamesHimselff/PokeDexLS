@@ -13,12 +13,10 @@ import com.android.volley.toolbox.Volley;
 import com.example.pokedexls.Model.Pokemon;
 import com.example.pokedexls.PokemonAdapter;
 import com.example.pokedexls.R;
-import com.google.android.gms.tflite.acceleration.Model;
 
 import java.util.ArrayList;
 
 public class PokedexFragment extends AppCompatActivity {
-
     private ArrayList<Pokemon> pokemons;
     private FragmentChangeListener listener;
     private Integer i;
