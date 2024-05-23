@@ -1,8 +1,10 @@
-package com.example.pokedexls;
+package com.example.pokedexls.Fragments;
+
+import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
+import com.example.pokedexls.R;
 
 public class TrainerFragment extends AppCompatActivity {
 

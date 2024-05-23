@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.pokedexls.Fragments.FragmentChangeListener;
+import com.example.pokedexls.Model.Pokemon;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

@@ -1,23 +1,21 @@
-package com.example.pokedexls;
+package com.example.pokedexls.Activities;
 
-
-import static androidx.core.content.ContentProviderCompat.requireContext;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.pokedexls.Fragments.FragmentChangeListener;
+import com.example.pokedexls.MainScreen;
+import com.example.pokedexls.R;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,11 +24,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-
-public class MainActivity extends AppCompatActivity implements FragmentChangeListener {
-
-    private ArrayList<Pokemon> pokemons;
+public class LoginActivity extends AppCompatActivity implements FragmentChangeListener {
     private FirebaseAuth mAuth;
 
     private Button signbutton;
@@ -39,9 +33,6 @@ public class MainActivity extends AppCompatActivity implements FragmentChangeLis
     private EditText editTextEmail;
     private EditText editTextPassword;
 
-    private ImageButton pokedexButton;
-    private ImageButton trainerButton;
-    private ImageButton shopButton;
     private TextView header;
 
     String email, password;
@@ -53,40 +44,12 @@ public class MainActivity extends AppCompatActivity implements FragmentChangeLis
      hello123
      *****************************/
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        this.pokemons = new ArrayList<>();
-        getAllPokemon(0);
+        setContentView(R.layout.activity_login);
 
         FirebaseApp.initializeApp(this);
-
-        /*pokedexButton = (ImageButton) findViewById(R.id.pokedex);
-        trainerButton = (ImageButton) findViewById(R.id.trainer);
-        shopButton = (ImageButton) findViewById(R.id.shop);
-        header = (TextView) findViewById(R.id.header);
-        header.setText("Pokedex");
-
-        pokedexButton.setOnClickListener(v -> {
-            Intent pokedex_intent = new Intent(MainActivity.this, PokedexFragment.class);
-            MainActivity.this.startActivity(pokedex_intent);
-        });
-
-        trainerButton.setOnClickListener(v -> {
-            Intent trainer_intent = new Intent(MainActivity.this, TrainerFragment.class);
-            MainActivity.this.startActivity(trainer_intent);
-        });
-
-        shopButton.setOnClickListener(v -> {
-            Intent shop_intent = new Intent(MainActivity.this, ShopFragment.class);
-            MainActivity.this.startActivity(shop_intent);
-        });*/
-
-
 
         signbutton = (Button) findViewById(R.id.sign_button);
         registerbutton = (Button) findViewById(R.id.register_button);
@@ -97,13 +60,10 @@ public class MainActivity extends AppCompatActivity implements FragmentChangeLis
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-            // If I am already logged in
             showToast("Welcome back");
-            Intent main_intent = new Intent(MainActivity.this, MainScreen.class);
+            Intent main_intent = new Intent(LoginActivity.this, MainScreen.class);
             main_intent.putExtra("key", currentUser);
-            MainActivity.this.startActivity(main_intent);
-
-
+            LoginActivity.this.startActivity(main_intent);
 
             finish();
             return;
@@ -119,15 +79,14 @@ public class MainActivity extends AppCompatActivity implements FragmentChangeLis
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
                         } else {
-                            //error
+                            showToast(task.getResult().toString());
                         }
                     });
         });
 
        registerbutton.setOnClickListener(v -> {
-            Intent registerIntent = new Intent(MainActivity.this, RegisterActivity.class);
-            MainActivity.this.startActivity(registerIntent);
-
+            Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
+            LoginActivity.this.startActivity(registerIntent);
         });
 
     }
@@ -135,14 +94,14 @@ public class MainActivity extends AppCompatActivity implements FragmentChangeLis
 
  private void updateUI(FirebaseUser user) {
 
-     Intent main_intent = new Intent(MainActivity.this, MainScreen.class);
-     MainActivity.this.startActivity(main_intent);
+     Intent main_intent = new Intent(LoginActivity.this, MainScreen.class);
+     LoginActivity.this.startActivity(main_intent);
 
 
  }
 
     private void showToast(String message) {
-        Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+        Toast.makeText(LoginActivity.this, message, Toast.LENGTH_LONG).show();
     }
 
     @Override

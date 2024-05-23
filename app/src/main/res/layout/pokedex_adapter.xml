@@ -10,6 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="0dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -18,6 +19,7 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         app:layout_constraintEnd_toStartOf="@id/pokemon_pokeball"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toEndOf="@id/pokemon_image"
         tools:layout_editor_absoluteY="15dp" />
 

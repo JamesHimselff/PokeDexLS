@@ -1,4 +1,4 @@
-package com.example.pokedexls;
+package com.example.pokedexls.Fragments;
 
 import androidx.fragment.app.Fragment;
 

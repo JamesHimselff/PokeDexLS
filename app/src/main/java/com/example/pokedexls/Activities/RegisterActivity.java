@@ -1,12 +1,14 @@
-package com.example.pokedexls;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.pokedexls.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.pokedexls.MainScreen;
+import com.example.pokedexls.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterActivity extends AppCompatActivity {

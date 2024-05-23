@@ -1,4 +1,4 @@
-package com.example.pokedexls;
+package com.example.pokedexls.Model;
 
 public class Pokemon {
 
