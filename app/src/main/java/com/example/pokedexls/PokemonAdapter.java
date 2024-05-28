@@ -1,73 +1,65 @@
 package com.example.pokedexls;
 
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.pokedexls.Fragments.FragmentChangeListener;
 import com.example.pokedexls.Model.Pokemon;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHolder> {
+public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder> {
 
-    private static List<Pokemon> data;
-    private FragmentChangeListener listener;
+    private List<Pokemon> pokemonList;
 
-    public PokemonAdapter(List<Pokemon> data, FragmentChangeListener listener) {
-        this.data = data;
-        this.listener = listener;
+    public PokemonAdapter(List<Pokemon> pokemonList) {
+        this.pokemonList = pokemonList;
+    }
+
+    @NonNull
+    @Override
+    public PokemonViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.pokedex_adapter, parent, false);
+        return new PokemonViewHolder(view);
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.pokedex_adapter, parent, false);
-        return new ViewHolder(view, listener);
+    public void onBindViewHolder(@NonNull PokemonViewHolder holder, int position) {
+        Pokemon pokemon = pokemonList.get(position);
+
+        String capitalizedPokemonName = capitalizeFirstLetter(pokemon.getName());
+        holder.pokemonName.setText(capitalizedPokemonName);
+        Picasso.get().load(pokemon.getFrontImage()).into(holder.pokemonImage);
+        Picasso.get().load(R.drawable.ic_pokedex).into(holder.pokemonPokeball);
     }
 
-    @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        Pokemon item = data.get(position);
-        Picasso.get().load(item.getFrontImage()).into(holder.pokemonImage);
-        holder.pokemonName.setText(item.getName());
-        Picasso.get().load(item.getPokeballImage()).into(holder.pokemonPokeball);
+    private String capitalizeFirstLetter(String input) {
+        if (input == null || input.isEmpty()) {
+            return input;
+        }
+        return input.substring(0, 1).toUpperCase() + input.substring(1);
     }
-
-
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return pokemonList.size();
     }
-    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        private FragmentChangeListener listener;
+    public static class PokemonViewHolder extends RecyclerView.ViewHolder {
         TextView pokemonName;
-        ImageView pokemonPokeball;
         ImageView pokemonImage;
+        ImageView pokemonPokeball;
 
-        public ViewHolder(View itemView, FragmentChangeListener listener) {
+        public PokemonViewHolder(@NonNull View itemView) {
             super(itemView);
-            itemView.setOnClickListener(this);
-            this.listener = listener;
             pokemonName = itemView.findViewById(R.id.pokemon_name);
             pokemonImage = itemView.findViewById(R.id.pokemon_image);
             pokemonPokeball = itemView.findViewById(R.id.pokemon_pokeball);
-        }
-
-        @Override
-        public void onClick(View view) {
-            int position = getAdapterPosition();  // Get item position
-            Pokemon pokemon = data.get(position);
-            if (listener != null) {
-                //todo change to pokemon fragment
-            }
         }
     }
 }

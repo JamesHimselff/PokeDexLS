@@ -40,7 +40,7 @@ public class PokedexFragment extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.pokemon_recycler_view);
         recyclerView.setNestedScrollingEnabled(false);
 
-        adapter = new PokemonAdapter(pokemons.subList(15*i, (15*i)+15),listener ); // Assuming yourData is the list of all items
+        adapter = new PokemonAdapter(pokemons.subList(15*i, (15*i)+15) ); // Assuming yourData is the list of all items
         recyclerView.setAdapter(adapter);
 
         /*nextButton = (Button) findViewById(R.id.next);
@@ -51,7 +51,7 @@ public class PokedexFragment extends AppCompatActivity {
             if (i < pokemons.size()/15) {
                 i++;
                 page.setText("Page: " + i);
-                adapter = new PokemonAdapter(pokemons.subList(15*i, (15*i)+15), listener);
+                adapter = new PokemonAdapter(pokemons.subList(15*i, (15*i)+15));
                 recyclerView.setAdapter(adapter);
             }
         });
@@ -60,7 +60,7 @@ public class PokedexFragment extends AppCompatActivity {
             if (i > 0) {
                 i--;
                 page.setText("Page: " + i);
-                adapter = new PokemonAdapter(pokemons.subList(15*i, (15*i)+15), listener);
+                adapter = new PokemonAdapter(pokemons.subList(15*i, (15*i)+15));
                 recyclerView.setAdapter(adapter);
             }
         });
